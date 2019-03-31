@@ -1,1 +1,0 @@
-# Pr-ctica-lenguaje-C-
