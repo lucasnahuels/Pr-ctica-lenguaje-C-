@@ -95,7 +95,7 @@ class listaVotos{
        }
        Voto * aux = inicio;
          while(aux->sig != cual){ // Busco al anterior al que tengo que sacar
-             aux = aux->sig; //El bucle corta cuando en aux me queda la dirección del anterior
+             aux = aux->sig; //El bucle corta cuando en aux me queda la direcciÃ³n del anterior
          }
          aux->sig = cual->sig;
          cual->sig=0;
@@ -117,7 +117,7 @@ class listaVotos{
          if(strcmp(aux->nombre,quien)==0) return aux;
          aux=aux->sig;
         }
-       return 0; // Si no lo encontró
+       return 0; // Si no lo encontrÃ³
     }
 //-------------------------------------------------------------------------------------------------------------------------------
     void * cuentaVoto(char * quien, char * vot){
@@ -130,7 +130,7 @@ class listaVotos{
         if(strcmp(vot,"NO")==0) aux->neg++;
         aux=aux->sig;
        }
-       return 0; // Si no lo encontró
+       return 0; // Si no lo encontrÃ³
      }
     }
 //-------------------------------------------------------------------------------------------------------------------------------
