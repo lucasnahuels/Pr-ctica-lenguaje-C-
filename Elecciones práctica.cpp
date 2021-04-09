@@ -5,8 +5,9 @@
 
 using namespace std;
 
-class Voto{
-    public:
+class Voto
+{
+   public:
        char nombre [30];
        char sino [3];
        int pos;
@@ -28,11 +29,12 @@ class Voto{
        }
 };
 //===============================================================================================================================
-class listaVotos{
-    private:
+class listaVotos
+{
+   private:
        Voto * inicio;
 
-    public:
+   public:
        listaVotos()
        {
             inicio=0;
@@ -44,32 +46,32 @@ class listaVotos{
                 cout <<"Eliminando lista..." <<endl;
        }
 //-------------------------------------------------------------------------------------------------------------------------------
-       void agregar (char * nombre, char * sino)
+   void agregar (char * nombre, char * sino)
+   {
+       Voto * nuevo = new Voto;
+       strcpy(nuevo->nombre, nombre);
+       strcpy(nuevo->sino, sino);
+       strupr(sino);
+
+       if(strcmp(sino,"SI")==0) 
+           nuevo->pos++;
+       if(strcmp(sino,"NO")==0) 
+           nuevo->neg++;
+
+       if(inicio==0)
        {
-           Voto * nuevo = new Voto;
-           strcpy(nuevo->nombre, nombre);
-           strcpy(nuevo->sino, sino);
-           strupr(sino);
-           
-           if(strcmp(sino,"SI")==0) 
-               nuevo->pos++;
-           if(strcmp(sino,"NO")==0) 
-               nuevo->neg++;
+           inicio=nuevo;
+           return;
+       }
 
-           if(inicio==0)
-           {
-               inicio=nuevo;
-               return;
-           }
+       Voto * aux = inicio;
 
-           Voto * aux = inicio;
-           
-           while(aux->sig!=0)
-           {
-                aux=aux->sig;
-           }
-           aux->sig = nuevo;
-        }
+       while(aux->sig!=0)
+       {
+            aux=aux->sig;
+       }
+       aux->sig = nuevo;
+    }
 //-------------------------------------------------------------------------------------------------------------------------------
     int contar ()
     {
